@@ -79,7 +79,8 @@ void PlayRandomGameMod(CLang ParamLang, CMyParam Params){
                 Color (Params.MapParamString["ColorP" + to_string((PartyNum%2)+1)]);
                 cout << Players[PartyNum%2];
                 Color (KColor.find("KReset")->second);
-                cout << ", " << Lang["PlayerPlay"] << Lang["EnterMove"] << " : ";
+                cout << ", " << Lang["PlayerPlay"] << endl;
+                cout << Lang["EnterMove"] << " : ";
                 char Move = getch();
                 Move = tolower(Move);
                 if (MoveToken (Mat, Move, ((PartyNum%2) + 1) ,(PartyNum%2 == 0 ? PosPlayer1: PosPlayer2), Params)) break;

@@ -40,8 +40,8 @@ typedef std::pair <unsigned, unsigned> CPosition;
  */
 struct AuthorizedKey {
 /* List of authorized key for the type char in a struct CMyParam*/
-const std::vector <std::string> VParamChar {"KeyUpP1", "KeyDownP1", "KeyLeftP1", "KeyRightP1", "TokenP1",
-                                            "KeyUpP2", "KeyDownP2", "KeyLeftP2", "KeyRightP2","TokenP2", "BonusToken"};
+const std::vector <std::string> VParamChar {"KeyUpP1", "KeyDownP1", "KeyLeftP1", "KeyRightP1", "TokenP1","KeyUpP2",
+                                            "KeyDownP2", "KeyLeftP2", "KeyRightP2","TokenP2", "BonusToken", "KeyBonus1", "KeyBonus2"};
 /* List of authorized key for the type string in a struct CMyParam*/
 const std::vector<std::string> VParamString {"BorderColor", "RowColor", "IndexColor", "MyColor", "ColorP1", "ColorP2", "Lang", "BonusColor"};
 /* List of authorized key for the type unsigned in a struct CMyParam*/

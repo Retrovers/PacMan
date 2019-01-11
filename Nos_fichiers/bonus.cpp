@@ -22,10 +22,10 @@ vector<CPosition> GenerateBonus (const unsigned number, CMat & Mat, CMyParam Par
     return BonusCord;
 }
 
-void BonusAdd (vector<unsigned>, CMat & Mat, CMyParam Param) {
+void BonusAdd (CMat & Mat, vector<unsigned> & BonusPlayer, CPosition & Pos, CMyParam Params) {
     unsigned Posibility = 3;
     unsigned effect = rand()%(Posibility - 1 + 1) + 1;
-    if (effect = 0) {
+    if (effect == 0) {
         NoActionEffect(Mat, Params);
     } else {
         BonusPlayer.resize(BonusPlayer.size() +1 );
@@ -39,7 +39,7 @@ void BonusUse(const unsigned effect, CMat & Mat, vector<unsigned> BonusPlayer, C
         DoubleDeplacementEffect();
         break;
     case 2 :
-        TpAngleEffect(Pos);
+        TpAngleEffect(Pos, Params, Mat);
         break;
     default:
         break;

@@ -14,10 +14,10 @@ void InitParams (CMyParam & Param){
     //Move Keys
     Param.MapParamChar["KeyUp"] = 'z';
     Param.MapParamChar["KeyDown"] = 's';
-
     Param.MapParamChar["KeyLeft"] = 'q';
     Param.MapParamChar["KeyRight"] = 'd';
-
+    Param.MapParamChar["KeyBonus1"] = 'v';
+    Param.MapParamChar["KeyBonus2"] = 'b';
     Param.MapParamChar["TokenP1"] = 'Y';
     Param.MapParamChar["TokenP2"] = 'X';
     Param.MapParamChar["BonusToken"] = 'O';
