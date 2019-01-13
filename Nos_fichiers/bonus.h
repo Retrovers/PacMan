@@ -8,4 +8,6 @@ void NoActionEffect (CMat & Mat, CMyParam Params);
 void DoubleDeplacementEffect();
 void TpAngleEffect(CPosition & Pos, CMyParam & Params, CMat & Mat);
 void BonusUse(const unsigned& effect);
+void ShowBonusAvailable(const std::vector<unsigned> & BonusPlayer, CMyParam & Params, const CLang& ParamLang);
+
 #endif // BONUS_H

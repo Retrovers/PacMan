@@ -80,6 +80,7 @@ void PlayRandomGameMod(CLang ParamLang, CMyParam Params){
                 cout << Players[PartyNum%2];
                 Color (KColor.find("KReset")->second);
                 cout << ", " << Lang["PlayerPlay"] << endl;
+                ShowBonusAvailable((PartyNum%2 == 0 ? BonusPlayer1: BonusPlayer2), Params, ParamLang);
                 cout << Lang["EnterMove"] << " : ";
                 char Move = getch();
                 Move = tolower(Move);
