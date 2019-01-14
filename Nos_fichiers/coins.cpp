@@ -32,5 +32,16 @@ vector<CPosition> GenerateCoins (const unsigned number, CMat & Mat, CMyParam Par
 
 void CoinsAdd(CMat& Mat, vector<unsigned>& PlayerCoins ,unsigned PlayerNumber, vector<CPosition>& Coins, CMyParam Params){
     PlayerCoins[PlayerNumber] = PlayerCoins[PlayerNumber] + 1;
-    Coins.push_back(GenerateBonus(1, Mat, Params , false)[0]);
+    Coins.push_back(GenerateCoins(1, Mat, Params , false)[0]);
+}
+
+void CoinsKill(unsigned Killer, std::vector<unsigned> & PlayersCoins, CPosition & Pos, CMat & Mat, CMyParam Params){
+    if (Killer == 1){
+        PlayersCoins[Killer] += PlayersCoins[0];
+        PlayersCoins[0] = 0;
+    } else {
+        PlayersCoins[Killer] += PlayersCoins[1];
+        PlayersCoins[1] = 0;
+    }
+    TpAngleEffect(Pos, Params, Mat);
 }

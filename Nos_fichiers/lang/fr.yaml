@@ -26,3 +26,7 @@ BonusAvailabe : Bonus disponibles
 Bonus_1 : Double deplacement
 Bonus_2 : Teleportation
 Press : Presser
+CustomMapPage : ---- MAP PERSONNALISEE ----
+InstructionForSelectCustomMap : Voicis la liste des cartes disponibles
+MapsNotFound : Aucune carte est dans le dossier "Nos_fichiers/maps/", pour retourner au menu, tappez 'q'
+SelectCustomMap : Entrez le numero d'une carte personalise

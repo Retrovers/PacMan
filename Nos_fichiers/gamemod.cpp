@@ -100,8 +100,7 @@ void PlayRandomGameMod(CLang ParamLang, CMyParam Params){
             ClearScreen();
             cout << Lang["RandomGamePage"] << endl;
             DisplayGrid (Mat, Params ,PlayersCoins, Players);
-            if (PosPlayer1 == PosPlayer2); CoinsKill();
-
+            if (PosPlayer1 == PosPlayer2) CoinsKill(PartyNum%2, PlayersCoins, PartyNum%2 == 1 ? PosPlayer1: PosPlayer2, Mat, Params);
             if (PlayersCoins[(PartyNum%2)] >= Params.MapParamUnsigned["CoinsLimit"]) Victory = true;
 
             for (unsigned i = 0; i < Bonus.size(); ++i){
