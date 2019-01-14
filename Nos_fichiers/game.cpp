@@ -1,11 +1,10 @@
 #include <iostream>
-
+#include <unistd.h>
 #include "game.h"
 #include "config.h"
 #include "gridmanagement.h"
 #include "gamemod.h"
 #include <termios.h>
-#include <unistd.h>
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -27,6 +26,16 @@ void welcome(CMyParam & Param){
             break;
         }
     }
+}
+
+unsigned Random (unsigned min, unsigned max){
+    unsigned r;
+    while (true){
+        srand(time(NULL));
+        r = rand() % (max - min + 1) + min;
+        if (min <= r && r <= max) break;
+    }
+    return r;
 }
 
 int ppal (void)

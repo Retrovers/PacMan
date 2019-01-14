@@ -59,10 +59,11 @@ void PlayRandomGameMod(CLang ParamLang, CMyParam Params){
         ClearScreen();
     }
     while (true) {
+        ClearScreen();
+        cout << "Loading...";
         CMat Mat;
         CPosition PosPlayer1, PosPlayer2;
         InitGrid(Mat, Params.MapParamUnsigned["NbRow"], Params.MapParamUnsigned["NbColumn"], PosPlayer1, PosPlayer2, Params);
-        ClearScreen();
         vector<CPosition> Bonus = GenerateBonus(2, Mat, Params);
         vector<unsigned> BonusPlayer1, BonusPlayer2;
         cout << Lang["RandomGamePage"] << endl;
@@ -82,23 +83,23 @@ void PlayRandomGameMod(CLang ParamLang, CMyParam Params){
                 cout << ", " << Lang["PlayerPlay"] << endl;
                 ShowBonusAvailable((PartyNum%2 == 0 ? BonusPlayer1: BonusPlayer2), Params, ParamLang);
                 cout << Lang["EnterMove"] << " : ";
-                char Move = getch();
-                Move = tolower(Move);
-                if (MoveToken (Mat, Move, ((PartyNum%2) + 1) ,(PartyNum%2 == 0 ? PosPlayer1: PosPlayer2), Params)) break;
+                char Action = getch();
+                Action = tolower(Action);
+                BonusUse(Params, (PartyNum%2 == 0 ? BonusPlayer1: BonusPlayer2), (PartyNum%2 == 0 ? PosPlayer1: PosPlayer2), Mat, Action);
+                if (MoveToken (Mat, Action, ((PartyNum%2) + 1) ,(PartyNum%2 == 0 ? PosPlayer1: PosPlayer2), Params)) break;
                 cout << '\a';
             }
             ClearScreen();
             cout << Lang["RandomGamePage"] << endl;
             DisplayGrid (Mat, Params);
-
             if (PosPlayer1 == PosPlayer2) Victory = true;
             for (unsigned i = 0; i < Bonus.size(); ++i){
                 if (PosPlayer1 == Bonus[i]){
                     Bonus.erase(Bonus.begin(),Bonus.begin()+i);
-                    BonusAdd(Mat, BonusPlayer1, PosPlayer1, Params);
+                    BonusAdd(Mat, BonusPlayer1, PosPlayer1, Params, Bonus);
                 } else if (PosPlayer2 == Bonus[i]) {
+                    BonusAdd(Mat, BonusPlayer2 ,PosPlayer2, Params, Bonus);
                     Bonus.erase(Bonus.begin(),Bonus.begin()+i);
-                    BonusAdd(Mat, BonusPlayer2 ,PosPlayer2, Params);
                 }
             }
             ++PartyNum;

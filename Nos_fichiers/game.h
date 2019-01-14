@@ -23,6 +23,8 @@
 
 void MoveToken (CMat & Mat, const char & Move, CPosition & Pos);
 
+unsigned Random(unsigned min , unsigned max);
+
 int getch(void);
 /**
  * @brief new main
