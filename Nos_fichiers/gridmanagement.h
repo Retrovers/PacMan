@@ -34,7 +34,7 @@ void Color (const std::string & Col);
  * @param[in] Params : : List of usefull parameters
  * @fn void DisplayGrid (const CMat & Mat, const CMyParam & Params, bool ShowLineNumber = true, bool ShowColor = true);
  */
-void DisplayGrid (const CMat & Mat, CMyParam Params);
+void DisplayGrid (const CMat & Mat, CMyParam Params, std::vector<unsigned> Coins, std::vector<std::string> Players);
 
 template <class T, class U>
 void ShowMap (const std::map<T,U> & AMap);
@@ -48,5 +48,8 @@ void ShowMap (const std::map<T,U> & AMap);
  * @fn void InitGrid (CMat & Mat, const CMyParam & Params, CPosition & PosPlayer1, CPosition & PosPlayer2);
  */
 void InitGrid (CMat & Mat, unsigned NbLine, unsigned NbColumn, CPosition & PosPlayer1, CPosition & PosPlayer2, CMyParam Params);
+
+bool SelectCustomMaps(CMat & Mat, CLang ParamLang);
+std::string listDir();
 
 #endif // GRIDMANAGEMENT_H

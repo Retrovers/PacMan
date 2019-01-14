@@ -16,10 +16,10 @@ vector<CPosition> GenerateBonus (const unsigned number, CMat & Mat, CMyParam Par
     unsigned row, collumn;
     vector<CPosition> BonusCord(number);
     for (unsigned i = 0; i < number; ++i){
-        if (wait) sleep(1);
-        collumn = Random(1, Params.MapParamUnsigned["NbColumn"]);
-        if (wait) sleep(1);
-        row = Random(1, Params.MapParamUnsigned["NbRow"]);
+        if (wait) sleep(0.5);
+        collumn = Random(1, Params.MapParamUnsigned["NbColumn"] - 1);
+        if (wait) sleep(0.5);
+        row = Random(1, Params.MapParamUnsigned["NbRow"] - 1);
         Mat[row][collumn] = Params.MapParamChar["BonusToken"];
         CPosition BonusPos;
         BonusPos.first = row;
@@ -42,20 +42,25 @@ void ShowBonusAvailable(const vector<unsigned> & BonusPlayer, CMyParam & Params,
 
 void BonusAdd (CMat & Mat, vector<unsigned> & BonusPlayer, CPosition & Pos, CMyParam Params, vector<CPosition> & Bonus) {
     unsigned Posibility = 3;
-    unsigned effect = Random(0, Posibility);
+    unsigned effect = Random(0, Posibility - 1);
     if (effect == 0) {
         NoActionEffect(Mat, Params, Bonus);
-    } else {
+    } else if (effect == 1 || effect == 2) {
         BonusPlayer.push_back(effect);
     }
 }
 
-void BonusUse(CMyParam Params, vector<unsigned> & BonusPlayer, CPosition & Pos, CMat & Mat, const char & Action){
+void BonusUse(CMyParam Params, vector<unsigned> & BonusPlayer, CPosition & Pos, CMat & Mat, const char & Action, bool & TripleMove){
     if (Action == Params.MapParamChar["KeyBonus1"]){
         for (unsigned i = 0; i < BonusPlayer.size(); ++i){
+            cout << i;
             if (BonusPlayer[i] == 1){
-                DoubleDeplacementEffect();
-                BonusPlayer.erase(BonusPlayer.begin(),BonusPlayer.begin()+i);
+                TripleMove = true;
+                if (i == 0 && BonusPlayer.size() == 1) {
+                    BonusPlayer.resize(0);
+                } else {
+                    BonusPlayer.erase(BonusPlayer.begin(),BonusPlayer.begin()+i);
+                }
             }
         }
     } else if (Action == Params.MapParamChar["KeyBonus2"]){
@@ -63,7 +68,11 @@ void BonusUse(CMyParam Params, vector<unsigned> & BonusPlayer, CPosition & Pos, 
             cout << i;
             if (BonusPlayer[i] == 2){
                 TpAngleEffect(Pos, Params, Mat);
-                BonusPlayer.erase(BonusPlayer.begin(),BonusPlayer.begin()+i);
+                if (i == 0 && BonusPlayer.size() == 1) {
+                    BonusPlayer.resize(0);
+                } else {
+                    BonusPlayer.erase(BonusPlayer.begin(),BonusPlayer.begin()+i);
+                }
             }
         }
     }
@@ -72,9 +81,7 @@ void BonusUse(CMyParam Params, vector<unsigned> & BonusPlayer, CPosition & Pos, 
 void NoActionEffect(CMat & Mat, CMyParam Params, vector<CPosition> & Bonus){
     Bonus.push_back(GenerateBonus(1, Mat, Params, false)[0]);
 }
-void DoubleDeplacementEffect(){
 
-}
 void TpAngleEffect(CPosition & Pos, CMyParam Params, CMat & Mat) {
     unsigned angle = Random(0, 1);
     char car = Mat [Pos.first][Pos.second];

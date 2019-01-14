@@ -9,7 +9,8 @@ SOURCES += \
     main.cpp \
     Nos_fichiers/config.cpp \
     Nos_fichiers/gamemod.cpp \
-    Nos_fichiers/bonus.cpp
+    Nos_fichiers/bonus.cpp \
+    Nos_fichiers/coins.cpp
 
 DISTFILES += \
     Nos_fichiers/config/config.yaml \
@@ -22,4 +23,5 @@ HEADERS += \
     Nos_fichiers/type.h \
     Nos_fichiers/config.h \
     Nos_fichiers/gamemod.h \
-    Nos_fichiers/bonus.h
+    Nos_fichiers/bonus.h \
+    Nos_fichiers/coins.h

@@ -104,6 +104,7 @@ bool LoadParams (CMyParam & Param, const string & FileName) {
         Param.MapParamString["BorderColor"] = KColor.find("K" + Param.MapParamString["BorderColor"])->second;
         Param.MapParamString["ColorP2"] = KColor.find("K" + Param.MapParamString["ColorP2"])->second;
         Param.MapParamString["BonusColor"] = KColor.find("K" + Param.MapParamString["BonusColor"])->second;
+        Param.MapParamString["CoinsColor"] = KColor.find("K" + Param.MapParamString["CoinsColor"])->second;
         return true;
     } else {
         return false;

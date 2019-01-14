@@ -25,6 +25,8 @@ void MoveToken (CMat & Mat, const char & Move, CPosition & Pos);
 
 unsigned Random(unsigned min , unsigned max);
 
+void set_input_mode (void);
+
 int getch(void);
 /**
  * @brief new main

@@ -8,6 +8,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+
 #include <map>
 using namespace std;
 
@@ -31,15 +32,14 @@ void welcome(CMyParam & Param){
 unsigned Random (unsigned min, unsigned max){
     unsigned r;
     while (true){
-        srand(time(NULL));
         r = rand() % (max - min + 1) + min;
         if (min <= r && r <= max) break;
     }
     return r;
 }
-
 int ppal (void)
 {
+    srand(time(NULL));
     CMyParam Params;
     CLang ParamLang;
     InitParams(Params);
