@@ -2,8 +2,9 @@ WelcomeMenu : Welcome !
 GameMenu : Select one action
 RandomMapMenu : 1. Play on random map.
 CustomMapMenu : 2. play on custom map.
-AboutMenu : 3. About.
-ExitMenu : 4. Exit.
+Command : 3.Command
+AboutMenu : 4. About.
+ExitMenu : 5. Exit.
 SelectChoiceForGameModMenu : Enter a choise (number) 
 Goodbye : Merci d'avoir jouer au jeu ! En esperant vous revoir bientot.
 AboutPage : ---- ABOUT ----
@@ -30,3 +31,8 @@ CustomMapPage : ---- CUSTOM MAP ----
 InstructionForSelectCustomMap : List of avalaible map
 MapsNotFound : No map founds in "Nos_fichiers/maps/", for go back to main menu, press 'q'
 SelectCustomMap : Enter a number on one map
+Top : Top
+Right : Right
+Left : Left
+Back : Back
+CommandPage : ---- COMMAND ----

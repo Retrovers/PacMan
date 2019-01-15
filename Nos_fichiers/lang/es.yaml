@@ -2,8 +2,9 @@ WelcomeMenu : ¡Bienvenido!
 GameMenu : Selecione una acion
 RandomMapMenu : 1. Jugar sobre una tarjeta generada inciertamente.
 CustomMapMenu : 2. Jugar sobre una tarjeta personalizada.
-AboutMenu : 3. A proposito.
-ExitMenu : 4. Salir.
+Command : 3. Commanda
+AboutMenu : 4. A proposito.
+ExitMenu : 5. Salir.
 SelectChoiceForGameModMenu : entrar en una elección (numero) 
 Goodbye : ¡Gracias por jugar al juego !
 AboutPage : ---- A PROPOSITO ----
@@ -30,3 +31,9 @@ CustomMapPage : ---- Mapa personalizada ----
 InstructionForSelectCustomMap : List of avalaible map
 MapsNotFound : No map founds in "Nos_fichiers/maps/", for go back to main menu, press 'q'
 SelectCustomMap : Enter a number on one map
+Command : Commanda
+Top : Top
+Right : Right
+Left : Left
+Back : Back
+CommandPage : ---- COMMAND ----
