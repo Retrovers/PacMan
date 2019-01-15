@@ -5,5 +5,6 @@
 
 std::vector<CPosition> GenerateCoins (const unsigned number, CMat & Mat, CMyParam Params, bool wait = true);
 void CoinsAdd(CMat& Mat, std::vector<unsigned>& PlayerCoins, unsigned PlayerNumber, std::vector<CPosition>& Coins, CMyParam Params);
-void CoinsKill(unsigned Killer, std::vector<unsigned> & PlayersCoins, CPosition & Pos, CMat & Mat, CMyParam Params);
+void CoinsKill(unsigned Killer, std::vector<unsigned> & PlayersCoins, CPosition & PosPlayer1, CPosition
+               & PosPlayer2,CMat & Mat, CMyParam Params);
 #endif // COINS_H

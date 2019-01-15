@@ -34,7 +34,8 @@ void ShowBonusAvailable(const vector<unsigned> & BonusPlayer, CMyParam & Params,
         cout << Lang["BonusAvailabe"] << " : ";
         for (unsigned i = 0; i < BonusPlayer.size(); ++i){
             cout << Lang["Bonus_" + to_string(BonusPlayer[i])] << "(" << Lang["Press"] << " "
-                                                               << Params.MapParamChar["KeyBonus" + to_string(BonusPlayer[i])] << "),";
+                                                               << Params.MapParamChar["KeyBonus" + to_string(BonusPlayer[i])] << ")";
+            if (i != BonusPlayer.size() - 1) cout << ",";
         }
         cout << endl;
     }

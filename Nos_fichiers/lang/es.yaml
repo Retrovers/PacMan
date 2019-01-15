@@ -1,0 +1,32 @@
+WelcomeMenu : ¡Bienvenido!
+GameMenu : Selecione una acion
+RandomMapMenu : 1. Jugar sobre una tarjeta generada inciertamente.
+CustomMapMenu : 2. Jugar sobre una tarjeta personalizada.
+AboutMenu : 3. A proposito.
+ExitMenu : 4. Salir.
+SelectChoiceForGameModMenu : entrar en una elección (numero) 
+Goodbye : ¡Gracias por jugar al juego !
+AboutPage : ---- A PROPOSITO ----
+MenuPage : ---- MENU PRINCIPAL ----
+About : The game was created for a project by Lucas FAUCHIER, Haitam FERTOUT, Viguen DJARAYAN et Selim HELALI.
+HowExitAbout : Para volver al menú principal, entra "q"
+RandomGamePage : ---- RANDOM MAP ----
+InstructionForPlayerName : Para empezar, escribe el pseudo de jugadores
+Player1 : Jugador 1
+Player2 : Jugador 2
+ConfirmChoise : Confirm your player name ? (0 por no and 1 por si)
+Step : Numero de vuelta
+PlayerPlay : ¡a tí de jugar!
+EnterMove : Entra a un movimiento
+NoWinner : Ningun ganador
+Congrelation : Felicitación!
+PlayerWin : ¡Tú triunfas!
+WantRestart : Restart game ? (0 por no and 1 por si)
+BonusAvailabe : Bonus disponibles
+Bonus_1 : Doble movimiento
+Bonus_2 : Teletransportación
+Press : Presionar
+CustomMapPage : ---- Mapa personalizada ----
+InstructionForSelectCustomMap : List of avalaible map
+MapsNotFound : No map founds in "Nos_fichiers/maps/", for go back to main menu, press 'q'
+SelectCustomMap : Enter a number on one map

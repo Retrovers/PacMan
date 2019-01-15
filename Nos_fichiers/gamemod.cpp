@@ -56,8 +56,8 @@ void PlayRandomGameMod(CLang ParamLang, CMyParam Params){
         cin >> Players[1];
         unsigned choise;
         while (true){
-            cout << Lang["ConfirmChoise"];
-            cin >> choise;;
+            cout << Lang["ConfirmChoise"] << " : ";
+            cin >> choise;
             if (choise == 0 || choise == 1) break;
         }
         if (choise == 1) break;
@@ -74,12 +74,10 @@ void PlayRandomGameMod(CLang ParamLang, CMyParam Params){
         vector<unsigned> BonusPlayer1, BonusPlayer2;
         cout << Lang["RandomGamePage"] << endl;
         bool Victory = false;
-        const unsigned KSize (10);
         unsigned PartyNum (1);
         vector<unsigned> PlayersCoins = {0,0};
-        const unsigned KMaxPartyNum (KSize * KSize);
-        bool TripleMove = false;
-        while (PartyNum <= KMaxPartyNum && !Victory){
+        while (PartyNum <= 250 && !Victory){
+            bool TripleMove = false;
             while(true){
                 ClearScreen();
                 cout << Lang["RandomGamePage"] << endl;
@@ -93,37 +91,40 @@ void PlayRandomGameMod(CLang ParamLang, CMyParam Params){
                 cout << Lang["EnterMove"] << " : ";
                 char Action = getch();
                 Action = tolower(Action);
-                BonusUse(Params, (PartyNum%2 == 0 ? BonusPlayer1: BonusPlayer2), (PartyNum%2 == 0 ? PosPlayer1: PosPlayer2), Mat, Action, TripleMove);
-                if (MoveToken (Mat, Action, ((PartyNum%2) + 1) ,(PartyNum%2 == 0 ? PosPlayer1: PosPlayer2), Params, TripleMove)) break;
+                if (MoveToken (Mat, Action, ((PartyNum%2) + 1) ,(PartyNum%2 == 0 ? PosPlayer1: PosPlayer2), Params, TripleMove)){
+                    break;
+                } else {
+                    BonusUse(Params, (PartyNum%2 == 0 ? BonusPlayer1: BonusPlayer2), (PartyNum%2 == 0 ? PosPlayer1: PosPlayer2), Mat, Action, TripleMove);
+                }
                 cout << '\a';
             }
             ClearScreen();
             cout << Lang["RandomGamePage"] << endl;
             DisplayGrid (Mat, Params ,PlayersCoins, Players);
-            if (PosPlayer1 == PosPlayer2) CoinsKill(PartyNum%2, PlayersCoins, PartyNum%2 == 1 ? PosPlayer1: PosPlayer2, Mat, Params);
+            if (PosPlayer1 == PosPlayer2) CoinsKill(PartyNum%2, PlayersCoins, PosPlayer1, PosPlayer2, Mat, Params);
             if (PlayersCoins[(PartyNum%2)] >= Params.MapParamUnsigned["CoinsLimit"]) Victory = true;
 
             for (unsigned i = 0; i < Bonus.size(); ++i){
                 if (PosPlayer1 == Bonus[i]){
-                    Bonus.erase(Bonus.begin(),Bonus.begin()+i);
+                    Bonus.erase(Bonus.begin()+i);
                     BonusAdd(Mat, BonusPlayer1, PosPlayer1, Params, Bonus);
                 } else if (PosPlayer2 == Bonus[i]) {
                     BonusAdd(Mat, BonusPlayer2 ,PosPlayer2, Params, Bonus);
-                    Bonus.erase(Bonus.begin(),Bonus.begin()+i);
+                    Bonus.erase(Bonus.begin()+i);
                 }
             }
-
             for (unsigned i = 0; i < Coins.size(); ++i){
                 if (PosPlayer1 == Coins[i]){
-                    Coins.erase(Coins.begin(),Coins.begin()+i);
-                    CoinsAdd(Mat, PlayersCoins, PartyNum%2 , Coins, Params);
+                    Coins.erase(Coins.begin()+i);
+                    CoinsAdd(Mat, PlayersCoins, 0 , Coins, Params);
                 } else if (PosPlayer2 == Coins[i]){
-                    Coins.erase(Coins.begin(),Coins.begin()+i);
-                    CoinsAdd(Mat, PlayersCoins, PartyNum%2 , Coins, Params);
+                    Coins.erase(Coins.begin()+i);
+                    CoinsAdd(Mat, PlayersCoins, 1 , Coins, Params);
                 }
             }
 
             ++PartyNum;
+            if (PartyNum == 40 || PartyNum == 70 || PartyNum == 90 || PartyNum == 130) GenerateBonus(1, Mat, Params, false);
         }
         ClearScreen();
         if (!Victory){
@@ -137,7 +138,7 @@ void PlayRandomGameMod(CLang ParamLang, CMyParam Params){
         }
         unsigned choise = 0;
         while (true){
-            cout << Lang["WantRestart"];
+            cout << Lang["WantRestart"] << " : ";
             cin >> choise;
             if (choise == 0 || choise == 1) break;
         }

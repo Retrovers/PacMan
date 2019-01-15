@@ -27,7 +27,7 @@ unsigned Random(unsigned min , unsigned max);
 
 void set_input_mode (void);
 
-int getch(void);
+char getch();
 /**
  * @brief new main
  * @return 0 if everything is OK

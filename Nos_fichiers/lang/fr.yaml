@@ -1,27 +1,27 @@
 WelcomeMenu : Bienvenue !
-GameMenu : Selectionnez ce que vous voulez voir ou ce que vous voulez faire parmis cette liste:
+GameMenu : Selectionnez ce que vous voulez voir ou ce que vous voulez faire parmis cette liste
 RandomMapMenu : 1. Jouer sur une carte genere aleatoirement.
 CustomMapMenu : 2. Jouer sur une carte personalise.
 AboutMenu : 3. A-propos.
 ExitMenu : 4. Quitter.
-SelectChoiceForGameModMenu : Entrez le nombre correspondant a un choix: 
+SelectChoiceForGameModMenu : Entrez le nombre correspondant a un choix
 Goodbye : Merci d'avoir jouer au jeu ! En esperant vous revoir bientot.
 AboutPage : ---- A PROPOS ----
 MenuPage : ---- MENU PRINCIPAL ----
-About : Le jeu a ete cree par des etudiants de l'universite Aix-Marseille, departement informatique du groupe 2B. Les etudiants qui ont travaille sur le jeu sont: Lucas FAUCHIER, Haitam FERTOUT, Viguen DJARAYAN et Selim HELALI.
-HowExitAbout : Pour revenir sur le menu principal, entrez "q": 
+About : Le jeu a ete cree par des etudiants de l'universite Aix-Marseille, departement informatique du groupe 2B. Les etudiants qui ont travaille sur le jeu sont Lucas FAUCHIER, Haitam FERTOUT, Viguen DJARAYAN et Selim HELALI.
+HowExitAbout : Pour revenir sur le menu principal, entrez "q"
 RandomGamePage : ---- MAP ALEATOIRE ----
-InstructionForPlayerName : Pour commencer, ecrivez les pseudos des joueurs :
+InstructionForPlayerName : Pour commencer, ecrivez les pseudos des joueurs 
 Player1 : Joueur 1
 Player2 : Joueur 2
-ConfirmChoise : Validez vous les informations ? (0 pour dire non et 1 pour dire oui): 
+ConfirmChoise : Validez vous les informations ? (0 pour dire non et 1 pour dire oui)
 Step : Tour numero
 PlayerPlay : a toi de jouer ! 
 EnterMove : Entre un mouvement
 NoWinner : Aucun vainqueur
 Congrelation : Bravo !
 PlayerWin : tu a gagne !
-WantRestart : Voulez vous recommencer ? (0 pour dire non et 1 pour dire oui): 
+WantRestart : Voulez vous recommencer ? (0 pour dire non et 1 pour dire oui)
 BonusAvailabe : Bonus disponibles
 Bonus_1 : Double deplacement
 Bonus_2 : Teleportation

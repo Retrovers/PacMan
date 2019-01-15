@@ -121,7 +121,7 @@ void GenerateConfig(unsigned lang_id, CMyParam & Param){
         lang = "en";
         break;
     case 3 :
-        lang = "ar";
+        lang = "es";
         break;
     default:
         cerr << "Erreur ! ";
@@ -129,6 +129,7 @@ void GenerateConfig(unsigned lang_id, CMyParam & Param){
         break;
     }
     Param.MapParamString["Lang"] = lang;
+    system("mkdir -p /Nos_fichiers/config/");
     ofstream configFile ("config/config.yaml");
     for (auto it = Param.MapParamChar.begin(); it != Param.MapParamChar.end(); ++it){
         configFile << it->first << " : " << it->second << endl;

@@ -4,8 +4,7 @@
 #include "config.h"
 #include "gridmanagement.h"
 #include "gamemod.h"
-#include <termios.h>
-#include <stdio.h>
+#include <termios.h>#include <stdio.h>
 #include <stdlib.h>
 
 
@@ -16,7 +15,7 @@ void welcome(CMyParam & Param){
     ClearScreen();
     cout << "Bonjour et bienvenue sur le jeu ! / Hello and welcome on our game !" << endl
          << "Pour commancer selectionez une langue parmis cette liste / For start, select one language : " << endl
-         << "1. Francais" << endl << "2. English" << endl << "3.ةيبرعلا" << endl;
+         << "1. Francais" << endl << "2. English" << endl << "3.Espagna" << endl;
     while (true) {
         cout << "Ecrire le numero de la langue / Write the number of your language : ";
         unsigned lang;
@@ -37,8 +36,7 @@ unsigned Random (unsigned min, unsigned max){
     }
     return r;
 }
-int ppal (void)
-{
+int ppal (void) {
     srand(time(NULL));
     CMyParam Params;
     CLang ParamLang;
@@ -56,7 +54,7 @@ int ppal (void)
             cout  << Lang ["MenuPage"] << endl << Lang["GameMenu"] << endl << Lang["RandomMapMenu"] << endl << Lang["CustomMapMenu"] << endl
                                         << Lang["AboutMenu"] << endl << Lang["ExitMenu"] << endl;
             while (true){
-               cout << Lang["SelectChoiceForGameModMenu"];
+               cout << Lang["SelectChoiceForGameModMenu"] << " : ";
                cin >> GameMod;
                if (GameMod == 4) {
                    ClearScreen();
@@ -86,15 +84,19 @@ int ppal (void)
     return 0;
 } //ppal ()
 
-int getch(void)
-{
-    struct termios oldattr, newattr;
-    int ch;
-    tcgetattr( STDIN_FILENO, &oldattr );
-    newattr = oldattr;
-    newattr.c_lflag &= ~( ICANON | ECHO );
-    tcsetattr( STDIN_FILENO, TCSANOW, &newattr );
-    ch = getchar();
-    tcsetattr( STDIN_FILENO, TCSANOW, &oldattr );
-    return ch;
-}
+char getch() {
+    char buf = 0;
+    struct termios old = { 0 };
+    fflush(stdout);
+    if (tcgetattr(0, &old) < 0) perror("tcsetattr()");
+    old.c_lflag    &= ~ICANON;   // local modes = Non Canonical mode
+    old.c_lflag    &= ~ECHO;     // local modes = Disable echo.
+    old.c_cc[VMIN]  = 1;         // control chars (MIN value) = 1
+    old.c_cc[VTIME] = 0;         // control chars (TIME value) = 0 (No time)
+    if (tcsetattr(0, TCSANOW, &old) < 0) perror("tcsetattr ICANON");
+    if (read(0, &buf, 1) < 0) perror("read()");
+    old.c_lflag    |= ICANON;    // local modes = Canonical mode
+    old.c_lflag    |= ECHO;      // local modes = Enable echo.
+    if (tcsetattr(0, TCSADRAIN, &old) < 0) perror ("tcsetattr ~ICANON");
+    return buf;
+ }

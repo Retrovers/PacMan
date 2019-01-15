@@ -1,0 +1,32 @@
+WelcomeMenu : Welcome !
+GameMenu : Select one action
+RandomMapMenu : 1. Play on random map.
+CustomMapMenu : 2. play on custom map.
+AboutMenu : 3. About.
+ExitMenu : 4. Exit.
+SelectChoiceForGameModMenu : Enter a choise (number) 
+Goodbye : Merci d'avoir jouer au jeu ! En esperant vous revoir bientot.
+AboutPage : ---- ABOUT ----
+MenuPage : ---- MAIN ----
+About : The game was created for a project by Lucas FAUCHIER, Haitam FERTOUT, Viguen DJARAYAN et Selim HELALI.
+HowExitAbout : For go back to main menu, enter "q"
+RandomGamePage : ---- RANDOM MAP ----
+InstructionForPlayerName : For start, write the pseudo of players
+Player1 : Player 1
+Player2 : Player 2
+ConfirmChoise : Confirm your player name ? (0 for no and 1 for yes)
+Step : Wave number
+PlayerPlay : it's your time !
+EnterMove : Enter one action
+NoWinner : No winner in this game
+Congrelation : Good !
+PlayerWin : you win !
+WantRestart : Restart game ? (0 for no and 1 for yes)
+BonusAvailabe : Bonus available
+Bonus_1 : Big jump
+Bonus_2 : Teleportation
+Press : Press
+CustomMapPage : ---- CUSTOM MAP ----
+InstructionForSelectCustomMap : List of avalaible map
+MapsNotFound : No map founds in "Nos_fichiers/maps/", for go back to main menu, press 'q'
+SelectCustomMap : Enter a number on one map
