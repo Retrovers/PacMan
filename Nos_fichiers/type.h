@@ -51,7 +51,7 @@ const std::vector<std::string> VLang {"WelcomeMenu", "GameMenu", "SelectChoiceFo
                                       "SelectChoiseForGameModMenu", "ExitMenu", "Goodbye", "About", "HowExitAbout", "AboutPage", "MenuPage",
                                      "RandomGamePage", "Player1", "InstructionForPlayerName", "Player2", "ConfirmChoise", "Bonus_1", "Bonus_2" ,
                                      "PlayerPlay", "EnterMove", "Step", "NoWinner", "Congrelation", "PlayerWin", "WantRestart", "BonusAvailabe", "Press",
-                                     "CustomMapPage", "InstructionForSelectCustomMap", "MapsNotFound", "SelectCustomMap"};
+                                     "CustomMapPage", "InstructionForSelectCustomMap", "MapsNotFound", "SelectCustomMap", "Command", "Top", "Right", "Left", "Back", "CommandPage"};
 };
 
 /**

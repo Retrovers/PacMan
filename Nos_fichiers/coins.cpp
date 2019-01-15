@@ -28,7 +28,7 @@ vector<CPosition> GenerateCoins (const unsigned number, CMat & Mat, CMyParam Par
         CoinsCord[i] = CoinsPos;
     }
     return CoinsCord;
-}
+} // GenerateCoins()
 
 void CoinsAdd(CMat& Mat, vector<unsigned>& PlayerCoins ,unsigned PlayerNumber, vector<CPosition>& Coins, CMyParam Params){
     PlayerCoins[PlayerNumber] = PlayerCoins[PlayerNumber] + 1;
@@ -37,12 +37,16 @@ void CoinsAdd(CMat& Mat, vector<unsigned>& PlayerCoins ,unsigned PlayerNumber, v
 
 void CoinsKill(unsigned Killer, std::vector<unsigned> & PlayersCoins, CPosition & PosPlayer1, CPosition& PosPlayer2,CMat & Mat, CMyParam Params) {
     if (Killer == 0){
-        PlayersCoins[Killer] += PlayersCoins[0];
-        PlayersCoins[0] = 0;
-        TpAngleEffect(PosPlayer2, Params, Mat);
-    } else {
         PlayersCoins[Killer] += PlayersCoins[1];
         PlayersCoins[1] = 0;
-        TpAngleEffect(PosPlayer1, Params, Mat);
+        PosPlayer2.first = Params.MapParamUnsigned["NbRow"] - 1;
+        PosPlayer2.second = 0;
+        Mat [PosPlayer2.first][PosPlayer2.second] = Params.MapParamChar["TokenP2"];
+    } else {
+        PlayersCoins[Killer] += PlayersCoins[0];
+        PlayersCoins[0] = 0;
+        PosPlayer1.first = 0;
+        PosPlayer1.second = Params.MapParamUnsigned["NbCollumn"] - 1;
+        Mat [PosPlayer1.first][PosPlayer1.second] = Params.MapParamChar["TokenP1"];
     }
 }

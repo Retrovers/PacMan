@@ -1,14 +1,12 @@
 #include <iostream>
 #include <iomanip>
-#include "gridmanagement.h"
+#include "Nos_fichiers/gridmanagement.h"
 #include "type.h" //nos types
 #include <stdio.h>
 #include <Nos_fichiers/config.h>
 #include <Nos_fichiers/game.h>
 
 using namespace std;
-
-
 
 void ClearScreen()
 {
@@ -19,12 +17,6 @@ void Color (const string & Col)
 {
     cout << "\033[" << Col.c_str () <<"m";
 } // Color ()
-
-template <class T, class U>
-void ShowMap (const map<T,U> & AMap){
-    for (const pair <T,U> & Val : AMap)                cout << "Cle : " << Val.first << "   "             << "Valeur : " << Val.second << endl;
-    cout << endl;
-}// ShowMap ()
 
 void DisplayGrid (const CMat & Mat, CMyParam Params, vector<unsigned> Coins, vector<string> Players)
 {

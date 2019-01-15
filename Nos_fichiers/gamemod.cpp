@@ -19,6 +19,25 @@ void About(CLang ParamLang){
     }
 }
 
+void Command(CLang ParamLang, CMyParam Params){
+    ClearScreen();
+    map <string, string> Lang = ParamLang.MapLangString;
+    cout << Lang["CommandPage"] << endl;
+    for (unsigned i = 1; i < 3; ++i){
+        cout << endl;
+        cout << Lang["Player" + to_string(i)] << " : " << endl << Lang["Top"] << " : " << Params.MapParamChar["KeyUpP" + to_string(i)] << endl
+        << Lang["Left"] << " : " << Params.MapParamChar["KeyLeftP" + to_string(i)] << endl
+        << Lang["Right"] << " : " << Params.MapParamChar["KeyRightP" + to_string(i)] << endl
+        << Lang["Back"] << " : " << Params.MapParamChar["KeyDownP" + to_string(i)] << endl;
+    }
+    while(true){
+        cout <<  endl <<Lang["HowExitAbout"];
+        char c = getch();
+        if (c == 'q') break;
+    }
+
+}
+
 bool MoveToken (CMat & Mat, const char & Move, const unsigned& playerId, CPosition & Pos, CMyParam Params, bool & TripleMove)
 {
     char car = Mat [Pos.first][Pos.second];
@@ -155,8 +174,7 @@ void PlayCustomMapMod(CLang ParamLang){
         CMat Mat;
         if (!SelectCustomMaps(Mat, ParamLang)){
             cout << Lang["MapsNotFound"];
-            char c;
-            cin >> c;
+            char c = getch();
             if (c == 'q') break;
         } else {
             break;

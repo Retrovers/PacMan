@@ -49,6 +49,13 @@ void ShowMap (const std::map<T,U> & AMap);
  */
 void InitGrid (CMat & Mat, unsigned NbLine, unsigned NbColumn, CPosition & PosPlayer1, CPosition & PosPlayer2, CMyParam Params);
 
+/*!
+ * \brief Selection
+ * \param[out] bool retourne si une map a ete selectionné
+ * \param[in] CLang ParamLang contient la map correspondant au traduction
+ * \param[out] CMat Mat matrice
+ * @fn void bool SelectCustomMaps(CMat & Mat, CLang ParamLang);
+ */
 bool SelectCustomMaps(CMat & Mat, CLang ParamLang);
 std::string listDir();
 

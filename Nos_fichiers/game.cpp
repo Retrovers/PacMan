@@ -4,7 +4,7 @@
 #include "config.h"
 #include "gridmanagement.h"
 #include "gamemod.h"
-#include <termios.h>#include <stdio.h>
+#include <termios.h>
 #include <stdlib.h>
 
 
@@ -41,7 +41,7 @@ int ppal (void) {
     CMyParam Params;
     CLang ParamLang;
     InitParams(Params);
-    if(!LoadParams(Params, "Nos_fichiers/config/config.yaml")) {
+    if(!LoadParams(Params, "config/config.yaml")) {
         welcome(Params);
     }
     LoadLang(Params.MapParamString["Lang"], ParamLang);
@@ -52,16 +52,16 @@ int ppal (void) {
         unsigned GameMod;
         while (true){
             cout  << Lang ["MenuPage"] << endl << Lang["GameMenu"] << endl << Lang["RandomMapMenu"] << endl << Lang["CustomMapMenu"] << endl
-                                        << Lang["AboutMenu"] << endl << Lang["ExitMenu"] << endl;
+                                        << Lang["Command"] << endl << Lang["AboutMenu"] << endl << Lang["ExitMenu"] << endl;
             while (true){
                cout << Lang["SelectChoiceForGameModMenu"] << " : ";
                cin >> GameMod;
-               if (GameMod == 4) {
+               if (GameMod == 5) {
                    ClearScreen();
                    cout << Lang["Goodbye"] << endl;
                    exit(1);
                }
-               if (GameMod >= 1 && GameMod <= 3) break;
+               if (GameMod >= 1 && GameMod <= 4) break;
             }
             ClearScreen();
             switch (GameMod) {
@@ -72,6 +72,9 @@ int ppal (void) {
                 PlayCustomMapMod(ParamLang);
                 break;
             case 3:
+                Command(ParamLang, Params);
+                break;
+            case 4 :
                 About(ParamLang);
                 break;
             default:

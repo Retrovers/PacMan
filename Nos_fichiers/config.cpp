@@ -36,7 +36,7 @@ void InitParams (CMyParam & Param){
 }
 
 void LoadLang(const string & l, CLang & Lang){
-    ifstream File("Nos_fichiers/lang/" + l + ".yaml");
+    ifstream File("lang/" + l + ".yaml");
     if (File.is_open()){
         string line;
         AuthorizedKey ak;
@@ -62,6 +62,9 @@ void LoadLang(const string & l, CLang & Lang){
             cout << "Impossible de charger le fichier de langue !" << endl;
             exit(1);
         }
+    } else {
+        cout << "Impossible de charger le fichier de langue !" << endl;
+        exit(1);
     }
 }
 
